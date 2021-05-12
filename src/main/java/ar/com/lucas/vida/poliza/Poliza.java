@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import ar.com.lucas.vida.asegurado.Asegurado;
 import ar.com.lucas.vida.beneficiario.Beneficiario;
+import ar.com.lucas.vida.cobertura.Cobertura;
 import lombok.Data;
 
 @Data
@@ -32,25 +34,25 @@ public class Poliza{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String cobertura;
+	
 	private Integer sumaAsegurada;
+	
 	private String pago;
 
-	
 	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name="ASEG_ID")
 	@JsonBackReference
 	private Asegurado asegurado;
-	/*
-	@OneToOne(orphanRemoval=false)
-	@JoinColumn(name= "FK_RAMO")
-	private Ramo tipo; */
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="poliza", fetch = FetchType.LAZY)
+	
+	@OneToOne(orphanRemoval=false)
+	@JoinColumn(name= "FK_COVER")
+	private Cobertura cobertura;
+	
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="poliza")
 	@JsonIgnore
 	private Set<Beneficiario> beneficiarios;
 	
-	
-	
-	
+		
 }
