@@ -10,6 +10,5 @@ import ar.com.lucas.vida.asegurado.Asegurado;
 public interface PolizaRepository extends JpaRepository<Poliza, Long> {
 
 	//@Query("select p from Poliza p where p.asegurado = ?1")
-	
 	List<Poliza> findByAseguradoLike(Asegurado asegurado);
 }

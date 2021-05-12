@@ -24,6 +24,10 @@ public class CoberturaService {
 		return coRepo.findById(id);
 	}
 	
+	public List<Cobertura> findByRama(String rama){
+		return coRepo.findByRamaLike(rama);
+	}
+	
 	// GUARDAR
 	
 	public Cobertura saveCobertura( Cobertura cobertura) {

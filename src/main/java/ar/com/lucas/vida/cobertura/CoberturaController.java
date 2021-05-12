@@ -29,6 +29,11 @@ public class CoberturaController {
 
 		return coService.findCobertura(id).orElseGet(Cobertura::new);
 	}
+	
+	@GetMapping("/cobertura/rama/{rama}")
+	public List<Cobertura> getAllCoberturas(@PathVariable String rama){
+		return coService.findByRama(rama.toUpperCase());
+	}
 
 	// AGREGAR
 
