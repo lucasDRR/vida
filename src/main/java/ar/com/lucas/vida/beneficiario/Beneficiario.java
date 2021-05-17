@@ -20,7 +20,7 @@ public class Beneficiario {
 	private String nombre;
 	private String direccion;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Poliza poliza;
+	//@ManyToOne(fetch = FetchType.LAZY)
+	//private Poliza poliza;
 
 }

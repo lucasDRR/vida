@@ -34,9 +34,13 @@ public class BeneficiarioService {
 		return benRepo.save(beneficiario);
 	}
 
-
 	public List<Beneficiario> saveBeneficiario(List<Beneficiario> beneficiarios) {
-		// Ingreso masivo de beneficiarios para una poliza, se filtran los nulos.	
+		// Ingreso masivo de beneficiarios para una poliza, 
+		// se filtran los nulos.
+		for(var it = beneficiarios.iterator(); it.hasNext(); ) {
+			if(it.next() == null) it.remove();
+		}
+		
 		return benRepo.saveAll(beneficiarios);
 	}
 

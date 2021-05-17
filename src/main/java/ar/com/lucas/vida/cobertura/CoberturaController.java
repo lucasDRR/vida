@@ -51,6 +51,7 @@ public class CoberturaController {
 
 	// BORRAR
 
+	// cambiar la URL
 	@DeleteMapping("cobertura/{id}/del")
 	public void delCobertura(@PathVariable Long id) {
 		coService.deleteCobertura(id);

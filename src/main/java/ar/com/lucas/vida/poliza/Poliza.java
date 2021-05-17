@@ -49,9 +49,9 @@ public class Poliza{
 	@JoinColumn(name= "FK_COVER")
 	private Cobertura cobertura;
 	
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="poliza")
-	@JsonIgnore
+	//@JsonIgnore
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name = "FK_BENEF")
 	private Set<Beneficiario> beneficiarios;
 	
 		

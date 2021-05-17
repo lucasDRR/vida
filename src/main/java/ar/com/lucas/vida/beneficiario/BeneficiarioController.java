@@ -27,17 +27,28 @@ public class BeneficiarioController {
 	public Beneficiario getBeneficiario(@PathVariable Long id){
 		return benService.findBeneficiario(id).orElse(null);
 	}
+	
+	@GetMapping("beneficiario/name/{name}")
+	public Beneficiario getBeneficiario(@PathVariable String name){
+		return benService.findByName(name).orElse(null);
+	}
 
+	// AGREGAR 
+	
 	@PostMapping("beneficiario/add")
 	public Beneficiario setBeneficiario(@RequestBody Beneficiario beneficiario) {
 		return benService.saveBeneficiario(beneficiario);
 	}
 
+	// MODIFICAR
+	
 	@PostMapping("beneficiario/addAll")
 	public List<Beneficiario> setBeneficiario(@RequestBody List<Beneficiario> beneficiarios) {
 		return benService.saveBeneficiario(beneficiarios);
 	}
 
+	// BORRAR
+	
 	@DeleteMapping("beneficiario/{id}")
 	public void delBeneficiario(@PathVariable Long id) {
 		benService.deleteBeneficiario(id);
