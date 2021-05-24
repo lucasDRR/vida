@@ -23,7 +23,16 @@ INSERT INTO COBERTURA
 VALUES(6, 'Profesionales', 'AP');
 
 INSERT INTO POLIZA 
-VALUES(1, 'Debito', 500000, 1, 1 );
+VALUES( 1, 200.0 ,  '2019-06-12' , 'debito' , 200000 , 2, 3);
 
 INSERT INTO POLIZA 
-VALUES(4, 'Debito', 250000, 2, 4 );
+VALUES( 2, 500.0 ,  '2018-03-12' , 'debito' , 900000 , 1, 2);
+
+INSERT INTO POLIZA 
+VALUES( 3, 200.0 ,  '2020-09-10' , 'debito' , 200000 , 2, 3);
+
+INSERT INTO POLIZA 
+VALUES( 4, 600.0 ,  '2020-04-12' , 'debito' , 1000000 , 1, 4);
+
+INSERT INTO POLIZA 
+VALUES( 5, 890.0 ,  '2019-03-10' , 'debito' , 1500000 , 1, 6);
