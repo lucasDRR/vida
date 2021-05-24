@@ -12,8 +12,6 @@ public class BeneficiarioService {
 	@Autowired
 	private BeneficiarioRepository benRepo;
 
-	// Recuperar
-
 	public List<Beneficiario> findAllBeneficiarios(){
 		return benRepo.findAll();
 	}
@@ -22,15 +20,14 @@ public class BeneficiarioService {
 		return benRepo.findById(id);
 	}
 
-	public Optional<Beneficiario> findByName(String name) {
-		return Optional.ofNullable(benRepo.findByNombre(name));
+	public Optional<Beneficiario> findByName(String dni) {
+		return benRepo.findOptionalByDni(dni);
 
 	}
 
 	// Guardar
 
 	public Beneficiario saveBeneficiario(Beneficiario beneficiario) {
-
 		return benRepo.save(beneficiario);
 	}
 
@@ -40,7 +37,6 @@ public class BeneficiarioService {
 		for(var it = beneficiarios.iterator(); it.hasNext(); ) {
 			if(it.next() == null) it.remove();
 		}
-		
 		return benRepo.saveAll(beneficiarios);
 	}
 

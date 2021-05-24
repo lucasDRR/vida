@@ -28,9 +28,9 @@ public class BeneficiarioController {
 		return benService.findBeneficiario(id).orElse(null);
 	}
 	
-	@GetMapping("beneficiario/name/{name}")
-	public Beneficiario getBeneficiario(@PathVariable String name){
-		return benService.findByName(name).orElse(null);
+	@GetMapping("beneficiario/name/{dni}")
+	public Beneficiario getBeneficiario(@PathVariable String dni){
+		return benService.findByName(dni).orElse(null);
 	}
 
 	// AGREGAR 

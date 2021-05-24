@@ -52,12 +52,10 @@ public class Poliza{
 	@JsonBackReference
 	private Asegurado asegurado;
 
-
 	@OneToOne(orphanRemoval=false)
 	@JoinColumn(name = "COVER_FK")
 	private Cobertura cobertura;
 
-	//@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "BENEF_FK")
 	private Set<Beneficiario> beneficiarios;
