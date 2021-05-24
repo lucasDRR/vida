@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -34,6 +35,12 @@ public class CoberturaController {
 	public List<Cobertura> getAllCoberturas(@PathVariable String rama){
 		return coService.findByRama(rama.toUpperCase());
 	}
+	
+	@GetMapping("/cobertura/rama")
+	public List<Cobertura> getCoberturasByRama(@RequestParam String rama){
+		return coService.findByRama(rama.toUpperCase());
+	}
+	
 
 	// AGREGAR
 
@@ -44,7 +51,7 @@ public class CoberturaController {
 
 	// MODIFICAR
 
-	@PutMapping("cobertura/{id}/upd")
+	@PutMapping("cobertura/{id}/update")
 	public Cobertura updateCobertura(@RequestBody Cobertura cobertura, @PathVariable Long id) {
 		return coService.updateCobertura(cobertura, id).orElseGet(Cobertura::new);
 	}

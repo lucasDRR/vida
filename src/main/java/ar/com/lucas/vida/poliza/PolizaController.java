@@ -33,6 +33,11 @@ public class PolizaController {
 		return polizaServ.findPolizasPorAsegurado(asegurado);
 	}
 	
+	@GetMapping("poliza/asegurado")
+	public List<PolizaDTO> getPolizaDTOByAsegurado(@RequestBody Asegurado asegurado){
+		return polizaServ.findByAseguradoDTO(asegurado);
+	}
+	
 	@PostMapping("poliza/add")
 	public Poliza setPoliza(@RequestBody Poliza poliza) {
 		return polizaServ.savePoliza(poliza);
