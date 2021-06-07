@@ -21,13 +21,18 @@ import lombok.Data;
 @Data
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope = Poliza.class)
-public class Asegurado{
-
+public class Asegurado {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nombre;
+	
 	private String direccion;
+	
+	// private Integer dni;
+	
 	private Integer edad;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="asegurado")

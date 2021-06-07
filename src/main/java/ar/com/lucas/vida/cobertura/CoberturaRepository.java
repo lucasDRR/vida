@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public interface CoberturaRepository extends JpaRepository<Cobertura, Long> {
-	
+
 	List<Cobertura> findByRamaLike(String rama);
 
 }

@@ -21,26 +21,25 @@ public class CoberturaController {
 	// RECUPERAR
 
 	@GetMapping("cobertura")
-	public List<Cobertura> getCoberturas(){
+	public List<Cobertura> getCoberturas() {
 		return coService.findAllCobertura();
 	}
 
 	@GetMapping("cobertura/{id}")
-	public Cobertura getCobertura(@PathVariable Long id){
+	public Cobertura getCobertura(@PathVariable Long id) {
 
 		return coService.findCobertura(id).orElseGet(Cobertura::new);
 	}
-	
+
 	@GetMapping("/cobertura/rama/{rama}")
-	public List<Cobertura> getAllCoberturas(@PathVariable String rama){
+	public List<Cobertura> getAllCoberturas(@PathVariable String rama) {
 		return coService.findByRama(rama.toUpperCase());
 	}
-	
+
 	@GetMapping("/cobertura/rama")
-	public List<Cobertura> getCoberturasByRama(@RequestParam String rama){
+	public List<Cobertura> getCoberturasByRama(@RequestParam String rama) {
 		return coService.findByRama(rama.toUpperCase());
 	}
-	
 
 	// AGREGAR
 
@@ -64,11 +63,9 @@ public class CoberturaController {
 		coService.deleteCobertura(id);
 	}
 
-
 	@DeleteMapping("cobertura/delCover")
 	public void delCobertura(@RequestBody Cobertura cobertura) {
 		coService.deleteByCobertura(cobertura);
 	}
-
 
 }

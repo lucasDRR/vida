@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AseguradoController {
+
 	@Autowired(required=true)
 	private AseguradoService as;
 
@@ -35,7 +36,6 @@ public class AseguradoController {
 	@PutMapping("asegurado/{id}/update")
 	public Asegurado updateAsegurado(@PathVariable Long id,
 			@RequestBody Asegurado asegurado) {
-		
 		return as.updateUsuario(id, asegurado).orElseGet(Asegurado::new);
 	}
 

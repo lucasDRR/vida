@@ -29,23 +29,30 @@ import lombok.Data;
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
 property="@id", scope = Asegurado.class)
-public class Poliza{
+public class Poliza {
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "SA", nullable = false)
-	private Integer sumaAsegurada;
+	private Integer suma;
+	
+	@Column( name = "MEDIO_PAGO", nullable = false)
+	private String medioPago;
+	
+	@Column(name = "INICIO")
+	private LocalDate inicioVigencia;
 
 	@Column(name = "FORMA_PAGO", nullable = false)
 	private String pago;
 
-	@Column(name = "INICIO")
-	private LocalDate inicioVigencia;
-
 	@Column(name = "CUOTA")
 	private Double cuota;
+	
+	@Column(name = "MODEDA")
+	private String moneda;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ASEG_FK")

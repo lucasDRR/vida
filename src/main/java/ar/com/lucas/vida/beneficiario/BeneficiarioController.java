@@ -19,36 +19,36 @@ public class BeneficiarioController {
 	// Recuperar
 
 	@GetMapping("beneficiario")
-	public List<Beneficiario> getAllBeneficiarios(){
+	public List<Beneficiario> getAllBeneficiarios() {
 		return benService.findAllBeneficiarios();
 	}
 
 	@GetMapping("beneficiario/{id}")
-	public Beneficiario getBeneficiario(@PathVariable Long id){
+	public Beneficiario getBeneficiario(@PathVariable Long id) {
 		return benService.findBeneficiario(id).orElse(null);
 	}
-	
+
 	@GetMapping("beneficiario/name/{dni}")
-	public Beneficiario getBeneficiario(@PathVariable String dni){
+	public Beneficiario getBeneficiario(@PathVariable String dni) {
 		return benService.findByName(dni).orElse(null);
 	}
 
-	// AGREGAR 
-	
+	// AGREGAR
+
 	@PostMapping("beneficiario/add")
 	public Beneficiario setBeneficiario(@RequestBody Beneficiario beneficiario) {
 		return benService.saveBeneficiario(beneficiario);
 	}
 
 	// MODIFICAR
-	
+
 	@PostMapping("beneficiario/addAll")
 	public List<Beneficiario> setBeneficiario(@RequestBody List<Beneficiario> beneficiarios) {
 		return benService.saveBeneficiario(beneficiarios);
 	}
 
 	// BORRAR
-	
+
 	@DeleteMapping("beneficiario/{id}")
 	public void delBeneficiario(@PathVariable Long id) {
 		benService.deleteBeneficiario(id);

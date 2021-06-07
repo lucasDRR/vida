@@ -12,11 +12,12 @@ public class BeneficiarioService {
 	@Autowired
 	private BeneficiarioRepository benRepo;
 
-	public List<Beneficiario> findAllBeneficiarios(){
+	// Recuperar
+	public List<Beneficiario> findAllBeneficiarios() {
 		return benRepo.findAll();
 	}
 
-	public Optional<Beneficiario> findBeneficiario(Long id){
+	public Optional<Beneficiario> findBeneficiario(Long id) {
 		return benRepo.findById(id);
 	}
 
@@ -32,15 +33,18 @@ public class BeneficiarioService {
 	}
 
 	public List<Beneficiario> saveBeneficiario(List<Beneficiario> beneficiarios) {
-		// Ingreso masivo de beneficiarios para una poliza, 
+		// Ingreso masivo de beneficiarios para una poliza,
 		// se filtran los nulos.
-		for(var it = beneficiarios.iterator(); it.hasNext(); ) {
-			if(it.next() == null) it.remove();
+		for (var it = beneficiarios.iterator(); it.hasNext();) {
+			if (it.next() == null)
+				it.remove();
 		}
 		return benRepo.saveAll(beneficiarios);
 	}
 
-	// Borrar 
+	// Modificar sin implementar
+
+	// Borrar
 
 	public void deleteBeneficiario(Long id) {
 		benRepo.deleteById(id);

@@ -6,8 +6,10 @@ import java.time.LocalDate;
 public interface PolizaDTO {
 	
 	Long getId();
-	Integer getSumaAsegurada();
+	Integer getSuma();
 	String getPago();
+	String getMedioPago();
+	String getMoneda();
 	LocalDate getInicioVigencia();
 	Double getCuota();
 	Cobertura getCobertura();
