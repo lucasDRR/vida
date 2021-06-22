@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class BeneficiarioController {
 	@Autowired
 	private BeneficiarioService benService;
 
-	// Recuperar
+	// RECUPERAR
 
 	@GetMapping("beneficiario")
 	public List<Beneficiario> getAllBeneficiarios() {
@@ -40,11 +41,17 @@ public class BeneficiarioController {
 		return benService.saveBeneficiario(beneficiario);
 	}
 
-	// MODIFICAR
-
 	@PostMapping("beneficiario/addAll")
 	public List<Beneficiario> setBeneficiario(@RequestBody List<Beneficiario> beneficiarios) {
 		return benService.saveBeneficiario(beneficiarios);
+	}
+
+	// MODIFICAR
+
+	@PutMapping("beneficiario/{id}")
+	public Beneficiario modifyBeneficiario(@PathVariable Long id, @RequestBody Beneficiario beneficiario) {
+
+		return benService.updateBeneficiario(id, beneficiario);
 	}
 
 	// BORRAR

@@ -3,6 +3,8 @@ package ar.com.lucas.vida.beneficiario;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,7 @@ public class BeneficiarioService {
 
 	}
 
-	// Guardar
+	// GUARDAR
 
 	public Beneficiario saveBeneficiario(Beneficiario beneficiario) {
 		return benRepo.save(beneficiario);
@@ -42,7 +44,27 @@ public class BeneficiarioService {
 		return benRepo.saveAll(beneficiarios);
 	}
 
-	// Modificar sin implementar
+	// Modificar
+
+	@Transactional
+	public Beneficiario updateBeneficiario(Long id, Beneficiario b) {
+
+		Optional<Beneficiario> temp = benRepo.findById(id);
+
+		temp.ifPresent(p -> {
+
+			p.setApellido(b.getApellido());
+			p.setNombre(b.getNombre());
+			p.setDni(b.getDni());
+			p.setDireccion(b.getDireccion());
+			p.setNacimiento(b.getNacimiento());
+
+			benRepo.save(temp.get());
+		});
+
+		return temp.get();
+
+	}
 
 	// Borrar
 

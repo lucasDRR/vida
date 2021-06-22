@@ -15,7 +15,6 @@ public class AseguradoService {
 
 	// RECUPERAR asegurados
 	public List<Asegurado> findAllAsegurados(){
-
 		return asRepo.findAll();
 	}
 
@@ -25,9 +24,9 @@ public class AseguradoService {
 		return temp;
 	}
 
-	public Optional<Asegurado> findAseguradoByNames(String nombre, String apellido){
-		return this.asRepo.findOptionalByNombreAndApellido(nombre, apellido);
-	}
+//	public Optional<Asegurado> findAseguradoByNames(String nombre, String apellido){
+//		return this.asRepo.findOptionalByNombreAndApellido(nombre, apellido);
+//	}
 
 	//AGREGAR ASEGURADO
 

@@ -28,7 +28,7 @@ public class CoberturaController {
 	@GetMapping("cobertura/{id}")
 	public Cobertura getCobertura(@PathVariable Long id) {
 
-		return coService.findCobertura(id).orElseGet(Cobertura::new);
+		return coService.findCobertura(id).get();
 	}
 
 	@GetMapping("/cobertura/rama/{rama}")
@@ -50,20 +50,20 @@ public class CoberturaController {
 
 	// MODIFICAR
 
-	@PutMapping("cobertura/{id}/update")
+	@PutMapping("cobertura/{id}")
 	public Cobertura updateCobertura(@RequestBody Cobertura cobertura, @PathVariable Long id) {
-		return coService.updateCobertura(cobertura, id).orElseGet(Cobertura::new);
+		return coService.updateCobertura(cobertura, id).get();
 	}
 
 	// BORRAR
 
 	// cambiar la URL
-	@DeleteMapping("cobertura/{id}/del")
+	@DeleteMapping("cobertura/{id}")
 	public void delCobertura(@PathVariable Long id) {
 		coService.deleteCobertura(id);
 	}
 
-	@DeleteMapping("cobertura/delCover")
+	@DeleteMapping("cobertura/deleteCover")
 	public void delCobertura(@RequestBody Cobertura cobertura) {
 		coService.deleteByCobertura(cobertura);
 	}
