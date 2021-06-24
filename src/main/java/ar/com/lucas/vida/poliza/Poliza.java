@@ -63,9 +63,9 @@ public class Poliza {
 	@JoinColumn(name = "COVER_FK")
 	private Cobertura cobertura;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "POLIZA_FK")
-	private Set<Beneficiario> beneficiarios;
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "POLIZA_FK")
+//	private Set<Beneficiario> beneficiarios;
 
 
 }
