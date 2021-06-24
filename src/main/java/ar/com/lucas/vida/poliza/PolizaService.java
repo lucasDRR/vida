@@ -21,23 +21,34 @@ public class PolizaService {
 	public List<Poliza> findAllPolizas() {
 		return polizaRepo.findAll();
 	}
+	
+	// Buscar una póliza por ID
 
-	// busca una poliza por asegurado
+	public Optional<Poliza> findPoliza(Long id) {
+		return polizaRepo.findById(id);
+	}
+
+	/* Busca las polizas de un asegurado especifico, recibe asegurado
+	 * como parametro de búsqueda.
+	 * */
 
 	public List<Poliza> findPolizasPorAsegurado(Asegurado asegurado) {
 		return polizaRepo.findByAseguradoLike(asegurado);
 	}
 
-	// Busca por asegurado, retorna lista PolizaDTO
+	/* Busca las polizas de un asegurado especifico, recibe un 'asegurado
+	 * como parámetro. 
+	 * Retorna una lista de PolizaDTO (no incluye beneficiarios.
+	 * */
 
 	public List<PolizaDTO> findByAseguradoDTO(Asegurado asegurado) {
 		return polizaRepo.findByAsegurado(asegurado);
 	}
+	
+	// busca una poliza por asegurado
 
-	// Buscar una póliza por ID
-
-	public Optional<Poliza> findPoliza(Long id) {
-		return polizaRepo.findById(id);
+	public List<Poliza> findPolizasPorAseguradoId(Long id) {
+		return polizaRepo.findByAseguradoIdLike(id);
 	}
 
 	// GUARDAR

@@ -34,7 +34,7 @@ public class PolizaController {
 	/*
 	 * Obtiene una lista de las poliza de un asegurado determinado
 	 */
-	@GetMapping("poliza/aseg")
+	@GetMapping("poliza/asegurado")
 	public List<Poliza> getPolizaByAsegurado(@RequestBody Asegurado asegurado) {
 		return polizaServ.findPolizasPorAsegurado(asegurado);
 	}
@@ -43,9 +43,18 @@ public class PolizaController {
 	 * Obtiene una lista de las poliza de un asegurado determinado, no incluye los
 	 * datos del asegurado o la lista de beneficiarios.
 	 */
-	@GetMapping("poliza/asegurado")
+	@GetMapping("poliza/miniaseg")
 	public List<PolizaDTO> getPolizaDTOByAsegurado(@RequestBody Asegurado asegurado) {
 		return polizaServ.findByAseguradoDTO(asegurado);
+	}
+
+	/*
+	 * Obtiene una lista de las poliza de un asegurado determinado, busca por el id
+	 * de asegurado
+	 */
+	@GetMapping("poliza/asegurado/{id}")
+	public List<Poliza> getPolizaByAsegurado(@PathVariable Long id) {
+		return polizaServ.findPolizasPorAseguradoId(id);
 	}
 
 	// Guardar
@@ -56,12 +65,12 @@ public class PolizaController {
 	}
 
 	// Modificar sin implementar
-	
+
 	@PutMapping("poliza/suma/{id}")
 	public Poliza updateSumaAsegurada(@PathVariable Long id, @RequestBody Integer suma) {
 		return polizaServ.setSumaAsegurada(id, suma);
 	}
-	
+
 	@PutMapping("poliza/pago/{id}")
 	public Poliza updatePago(@PathVariable Long id, @RequestBody Poliza pago) {
 		return polizaServ.setPago(id, pago.getMedioPago(), pago.getPago());

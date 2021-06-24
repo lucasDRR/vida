@@ -14,7 +14,11 @@ public interface PolizaRepository extends JpaRepository<Poliza, Long> {
 	
 	List<PolizaDTO> findByAsegurado(Asegurado asegurado);
 	
+	List<Poliza> findByAseguradoIdLike(Long id);
+
+	
 	@Modifying(clearAutomatically = true)
 	@Query("update Poliza p set p.medioPago = ?2, p.pago = ?3 where p.id = ?1")
 	int setFixedMedioPagoAndPagoFor(Long id, String medioPago, String formaPago);
+
 }

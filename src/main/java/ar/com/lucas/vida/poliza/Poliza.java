@@ -28,7 +28,7 @@ import lombok.Data;
 @Data
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
-property="@id", scope = Asegurado.class)
+property="idx", scope = Asegurado.class)
 public class Poliza {
 
 
@@ -64,7 +64,7 @@ public class Poliza {
 	private Cobertura cobertura;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "BENEF_FK")
+	@JoinColumn(name = "POLIZA_FK")
 	private Set<Beneficiario> beneficiarios;
 
 
