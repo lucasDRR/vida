@@ -23,11 +23,6 @@ public class BeneficiarioService {
 		return benRepo.findById(id);
 	}
 
-	public Optional<Beneficiario> findByName(String dni) {
-		return benRepo.findOptionalByDni(dni);
-
-	}
-
 	// GUARDAR
 
 	public Beneficiario saveBeneficiario(Beneficiario beneficiario) {

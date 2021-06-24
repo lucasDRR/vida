@@ -39,4 +39,5 @@ public class Beneficiario implements Serializable {
 	@Column(name = "NACIDO", nullable = true)
 	private LocalDate nacimiento;
 
+
 }

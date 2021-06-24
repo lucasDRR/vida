@@ -29,11 +29,6 @@ public class BeneficiarioController {
 		return benService.findBeneficiario(id).orElse(null);
 	}
 
-	@GetMapping("beneficiario/name/{dni}")
-	public Beneficiario getBeneficiario(@PathVariable String dni) {
-		return benService.findByName(dni).orElse(null);
-	}
-
 	// AGREGAR
 
 	@PostMapping("beneficiario/add")
