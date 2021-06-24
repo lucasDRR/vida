@@ -26,7 +26,13 @@ public class AseguradoController {
 
 	@GetMapping("asegurado/{id}")
 	public Asegurado getAsegurado(@PathVariable Long id) {
-		return as.findAsegurado(id).orElseGet(Asegurado::new);
+		return as.findAsegurado(id).orElseGet(null);
+	}
+
+	/* Fake Login con dni */
+	@GetMapping("asegurado/login")
+	public AseguradoLoginDTO loginAsegurado(@RequestBody Integer dni) {
+		return as.findAseguradoByDni(dni);
 	}
 
 	@PostMapping("asegurado/add")

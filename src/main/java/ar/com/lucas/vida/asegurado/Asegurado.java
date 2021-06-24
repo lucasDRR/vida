@@ -21,7 +21,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope = Poliza.class)
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="idx", scope = Poliza.class)
 public class Asegurado {
 	
 	@Id
@@ -36,6 +36,9 @@ public class Asegurado {
 	
 	@Column(name="DNI", nullable=false)
 	private Integer dni;
+	
+	@Column(name="GENDER", nullable=false)
+	private String genero;
 	
 	@Column(name="AGE")
 	private Integer edad;

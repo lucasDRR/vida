@@ -10,5 +10,6 @@ public interface AseguradoRepository extends JpaRepository<Asegurado, Long> {
 	/* query para implementar el falso login 
 	 * no implementado aun
      */
-	//public Optional<Asegurado> findOptionalByNombreAndApellido(String nombre, String apellido);
+	public Optional<AseguradoLoginDTO> findOptionalByDni(Integer dni);
+
 }
