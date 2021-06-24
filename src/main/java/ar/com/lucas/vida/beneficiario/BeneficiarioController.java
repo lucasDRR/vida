@@ -29,6 +29,14 @@ public class BeneficiarioController {
 		return benService.findBeneficiario(id).orElse(null);
 	}
 
+	/*
+	 * Busca todos los beneficiarios de una poliza identificada con el id indicado
+	 */
+	@GetMapping("beneficiario/poliza/{id}")
+	public List<BeneficiarioDTO> findBeneficiariosOfPoliza(@PathVariable Long id) {
+		return benService.findBeneficiarioDTO(id);
+	}
+
 	// AGREGAR
 
 	@PostMapping("beneficiario/add")
@@ -56,8 +64,4 @@ public class BeneficiarioController {
 		benService.deleteBeneficiario(id);
 	}
 
-	@DeleteMapping("beneficiario/del")
-	public void delBeneficiario(@RequestBody Beneficiario beneficiario) {
-		benService.deleteBeneficiario(beneficiario);
-	}
 }

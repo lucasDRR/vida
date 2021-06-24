@@ -23,6 +23,10 @@ public class BeneficiarioService {
 		return benRepo.findById(id);
 	}
 
+	public List<BeneficiarioDTO> findBeneficiarioDTO(Long id) {
+		return benRepo.findByPolizaId(id);
+	}
+
 	// GUARDAR
 
 	public Beneficiario saveBeneficiario(Beneficiario beneficiario) {
@@ -65,10 +69,6 @@ public class BeneficiarioService {
 
 	public void deleteBeneficiario(Long id) {
 		benRepo.deleteById(id);
-	}
-
-	public void deleteBeneficiario(Beneficiario b) {
-		benRepo.delete(b);
 	}
 
 }
