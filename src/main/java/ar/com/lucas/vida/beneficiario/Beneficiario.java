@@ -42,6 +42,12 @@ public class Beneficiario implements Serializable {
 	@Column(name = "NACIDO", nullable = true)
 	private LocalDate nacimiento;
 
+	/* Esta configuracion permite que se repitan beneficiarios en la
+	 * tabla 'Beneficiario', es decir una misma persona puede ser beneficiario
+	 * de dos polizas distintas y sus datos se persisten dos veces en la BBDD
+	 * esto esta hecho a proposito aunque se podria utilizar una relacion ManyToMany
+	 * o un Lista
+	 * */
 	@ManyToOne
 	@JoinColumn(name = "POLIZA_FK", nullable = false)
 	private Poliza poliza;

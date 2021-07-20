@@ -65,6 +65,7 @@ public class AseguradoService {
 	// BORRAR ASEGURADO
 
 	public void deleteAsegurado(Long id) {
+		//error si se pasa un id que no existe
 		asRepo.deleteById(id);
 	}
 
