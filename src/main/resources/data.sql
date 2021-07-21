@@ -1,8 +1,8 @@
 INSERT INTO ASEGURADO (ID, ADDRESS, DNI, GENDER, AGE, NAME)
-VALUES(1, 'JDJ 432', 12333444, 'masculino', 34, 'Lucas Diaz');
+VALUES(1, 'JDJ 432', 12333444, 'masculino', 34, 'lucas diaz');
 
 INSERT INTO ASEGURADO (ID, ADDRESS, DNI, GENDER, AGE, NAME)
-VALUES(2, 'PD 901', 33111222,'femenino', 23, 'Sofia Velez');
+VALUES(2, 'PD 901', 33111222,'femenino', 23, 'sofia velez');
 
 INSERT INTO COBERTURA 
 VALUES(1, 'Vida Total', 'VIDA');
@@ -21,6 +21,12 @@ VALUES(5, 'Trabajo', 'AP');
 
 INSERT INTO COBERTURA 
 VALUES(6, 'Profesionales', 'AP');
+
+INSERT INTO COBERTURA 
+VALUES(7, 'Joven', 'RETIRO');
+
+INSERT INTO COBERTURA 
+VALUES(8, 'Tranquilidad', 'RETIRO');
 
 INSERT INTO POLIZA 
 VALUES( 1, 200.0 ,  '2019-06-12' ,'tarjeta visa', 'pesos', 'debito' , 200000 , 2, 3);

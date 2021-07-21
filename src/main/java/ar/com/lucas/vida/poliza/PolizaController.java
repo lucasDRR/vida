@@ -78,7 +78,7 @@ public class PolizaController {
 
 	// Borrar
 
-	@DeleteMapping("poliza/{id}/del")
+	@DeleteMapping("poliza/{id}")
 	public void delPoliza(@PathVariable Long id) {
 		polizaServ.deletePoliza(id);
 	}
